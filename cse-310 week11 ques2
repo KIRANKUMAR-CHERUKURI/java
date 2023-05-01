@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class WordFormationGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the words spoken by the two participants
+        String word5 = scanner.nextLine();
+        String word7 = scanner.nextLine();
+
+        // Check if the words are at least 3 characters long
+        if (word5.length() < 3 || word7.length() < 3) {
+            System.out.println("ERROR");
+        } else {
+            // Check if the starting 3 characters of word1 match the ending 3 characters of word2 in reverse order
+            String prefix1 = word5.substring(0, 3);
+            String suffix2 = new StringBuilder(word7.substring(word7.length() - 3)).reverse().toString();
+            if (prefix1.equals(suffix2)) {
+                System.out.println("GREAT");
+            } else {
+                System.out.println("TRY NEXT TIME");
+            }
+        }
+    }
+}
